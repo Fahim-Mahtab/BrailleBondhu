@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekly Updates - BrailleBondhu</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--primary-color), var(--accent-color));
+            border-radius: 2px;
+        }
+
+        .week-card {
+            position: relative;
+            width: calc(50% - 3rem);
+            margin-bottom: 3rem;
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            transition: var(--transition);
+        }
+
+        .week-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-color: var(--accent-color);
+        }
+
+        .week-card.left {
+            margin-right: auto;
+            margin-left: 0;
+        }
+
+        .week-card.right {
+            margin-left: auto;
+            margin-right: 0;
+        }
+
+        .week-card::before {
+            content: '';
+            position: absolute;
+            top: 30px;
+            width: 20px;
+            height: 20px;
+            background: var(--accent-color);
+            border: 4px solid var(--bg-color);
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px rgba(108, 99, 255, 0.2);
+        }
+
+        .week-card.left::before {
+            right: -62px;
+        }
+
+        .week-card.right::before {
+            left: -62px;
+        }
+
+        .week-number {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: #fff;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .week-title {
+            font-size: 1.6rem;
+            color: #fff;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .week-content {
+            color: #ccc;
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        .current-week {
+            border: 2px solid var(--accent-color);
+            background: rgba(108, 99, 255, 0.05);
+        }
+
+        .coming-soon {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: var(--card-bg);
+            border: 1px dashed rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            margin-top: 2rem;
+        }
+
+        .coming-soon h3 {
+            color: var(--accent-color);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .coming-soon p {
+            color: #aaa;
+        }
+
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 30px;
+            }
+
+            .week-card {
+                width: calc(100% - 4rem);
+                margin-left: 4rem !important;
+                margin-right: 0 !important;
+            }
+
+            .week-card::before {
+                left: -52px !important;
+            }
+
+            .week-card.left::before,
+            .week-card.right::before {
+                left: -52px;
+                right: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">BrailleBondhu</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="project.html">Project</a></li>
+            <li><a href="literature_review.html">Literature Review</a></li>
+            <li><a href="prototype.html">Prototype</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="weekly_updates.html" class="active">Weekly Updates</a></li>
+        </ul>
+        <div class="hamburger">
+            <span>&#9776;</span>
+        </div>
+    </nav>
+
+    <section class="section fade-in">
+        <h1 class="section-title">Weekly Updates</h1>
+
+        <div class="timeline">
+            <!-- Week 1 -->
+            <div class="week-card left">
+                <span class="week-number">Week 1</span>
+                <h2 class="week-title">Introduction to Robotics</h2>
+                <p class="week-content">
+                    Week 1 focused on an introduction to robotics and its real-world impact. Sir introduced the three
+                    major categories of robots—Industrial, Social, and Service robots—and explained where and how each
+                    type is used in practical scenarios. We were also introduced to how top universities around the
+                    world are advancing robotics research, with examples from renowned labs and institutions such as
+                    Boston Dynamics and Kyoto University's Robotics Club. This session helped us understand current
+                    global trends in robotics and set the foundation for the course.
+                </p>
+            </div>
+
+            <!-- Week 2 -->
+            <div class="week-card right">
+                <span class="week-number">Week 2</span>
+                <h2 class="week-title">Team Formation & Project Ideation</h2>
+                <p class="week-content">
+                    Week 2 focused on team formation and project ideation. Students formed groups and began
+                    brainstorming project ideas within the assigned project domains of Micro-robotics and Soft-robotics.
+                    The available domains included Social Robots and Applications (Companion/Storytelling), Delivery
+                    Robot Performance, Robots and Art Technology, and Robots in Education. Sir emphasized the importance
+                    of following the 3C model—Creativity, Curiosity, and Continuity—while designing robots that address
+                    real-life problems. The session also highlighted the significance of human–robot interaction,
+                    encouraging students to think about how users would communicate and engage with their robots.
+                </p>
+            </div>
+
+            <!-- Week 3 (Current) -->
+            <div class="week-card left current-week">
+                <span class="week-number">Week 3 • Current</span>
+                <h2 class="week-title">Robotics Design & Project Refinement</h2>
+                <p class="week-content">
+                    Week 3 focused on robotics design and project refinement. Sir discussed key concepts of robotics
+                    design and provided detailed feedback on each group's proposed project idea. Teams delivered short
+                    presentations introducing their members and explaining their project objectives, allowing for
+                    interactive discussion and guidance. During this session, Sir also instructed us to update our team
+                    websites with complete project documentation. This included completing a literature review by citing
+                    at least 10 recent research papers (2023–2026) from Google Scholar for each team member, preparing
+                    individual summaries, and producing a final combined summary. Additionally, we were asked to present
+                    a detailed list of project components, including figures, specifications, and a price breakdown,
+                    supported by appropriate reference sources.
+                </p>
+            </div>
+        </div>
+
+        <div class="coming-soon">
+            <h3>More Updates Coming Soon</h3>
+            <p>Stay tuned for updates from Week 4 onwards as our project progresses!</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 BrailleBondhu Team. All Rights Reserved.</p>
+    </footer>
+</body>
+
+</html>
