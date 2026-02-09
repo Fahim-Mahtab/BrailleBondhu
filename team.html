@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team - BrailleBondhu</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .profile-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-color: var(--accent-color);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1.5rem;
+            border: 3px solid var(--accent-color);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .profile-name {
+            font-size: 1.4rem;
+            color: #fff;
+            margin-bottom: 0.5rem;
+            min-height: 4.5rem;
+            /* Increased to fit 3 lines */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1.2;
+        }
+
+        .profile-role {
+            color: var(--accent-color);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            min-height: 2.5rem;
+            /* Increased for potential wrapping */
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+        }
+
+        .profile-dept {
+            font-size: 0.85rem;
+            color: #aaa;
+            margin-bottom: 1.5rem;
+            line-height: 1.4;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: auto;
+        }
+
+        .social-icon {
+            font-size: 1.2rem;
+            color: #ccc;
+            transition: var(--transition);
+        }
+
+        .social-icon:hover {
+            color: var(--accent-color);
+            transform: scale(1.1);
+        }
+
+        /* Faculty Card Specific Styles */
+        .faculty-card {
+            max-width: 900px !important;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 3rem;
+            padding: 3rem;
+        }
+
+        .faculty-card .profile-img {
+            width: 220px;
+            height: 220px;
+            margin-bottom: 0;
+            border-width: 4px;
+        }
+
+        .faculty-card .profile-info {
+            flex: 1;
+            text-align: left;
+        }
+
+        .faculty-card .profile-name {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .faculty-card .profile-role {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .faculty-card .profile-dept {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .faculty-card .social-links {
+            justify-content: flex-start;
+        }
+
+        @media (max-width: 768px) {
+            .faculty-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 2rem;
+            }
+
+            .faculty-card .profile-info {
+                text-align: center;
+            }
+
+            .faculty-card .social-links {
+                justify-content: center;
+            }
+
+            .faculty-card .profile-img {
+                margin-bottom: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">BrailleBondhu</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="project.html">Project</a></li>
+            <li><a href="literature_review.html">Literature Review</a></li>
+            <li><a href="prototype.html">Prototype</a></li>
+            <li><a href="team.html" class="active">Team</a></li>
+        </ul>
+        <div class="hamburger">
+            <span>&#9776;</span>
+        </div>
+    </nav>
+
+    <section class="section fade-in">
+        <h1 class="section-title">Meet the Team</h1>
+
+        <!-- Faculty Supervisor -->
+        <h2 style="text-align: center; color: var(--accent-color); margin-bottom: 2rem;">Faculty Supervisor</h2>
+        <div class="team-grid" style="grid-template-columns: 1fr; margin-bottom: 4rem;">
+            <div class="profile-card faculty-card">
+                <img src="assets/Mohammad Shidujaman.png" alt="Mohammad Shidujaman" class="profile-img">
+                <div class="profile-info">
+                    <h3 class="profile-name">Mohammad Shidujaman, PhD</h3>
+                    <p class="profile-role">Assistant Professor</p>
+                    <p class="profile-dept">Dept. of Computer Science and Engineering<br>School of Engineering,
+                        Technology and Sciences<br>Independent University, Bangladesh</p>
+                    <div class="social-links">
+                        <a href="mailto:shidujaman@iub.edu.bd" class="social-icon" title="Email"><i
+                                class="fas fa-envelope"></i></a>
+                        <a href="https://scholar.google.com/citations?hl=en&user=4U9RcZAAAAAJ&view_op=list_works&sortby=pubdate"
+                            target="_blank" class="social-icon" title="Google Scholar"><i
+                                class="fas fa-graduation-cap"></i></a>
+                        <a href="https://www.linkedin.com/in/mohammad-shidujaman-phd-104a2848/" target="_blank"
+                            class="social-icon" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Student Members -->
+        <h2 style="text-align: center; color: var(--accent-color); margin-top: 4rem; margin-bottom: 2rem;">Research Team
+        </h2>
+        <div class="team-grid">
+            <!-- Abdullah -->
+            <div class="profile-card">
+                <img src="assets/Abdullah.jpg" alt="MD. Abdullah Hossien Molla" class="profile-img">
+                <h3 class="profile-name">MD. Abdullah Hossien Molla</h3>
+                <p class="profile-role">Software Work</p>
+                <div class="social-links">
+                    <a href="mailto:2221061@iub.edu.bd" class="social-icon" title="Email"><i
+                            class="fas fa-envelope"></i></a>
+                    <a href="https://github.com/itzabd" target="_blank" class="social-icon" title="GitHub"><i
+                            class="fab fa-github"></i></a>
+                    <a href="https://www.researchgate.net/profile/Md-Molla-66" target="_blank" class="social-icon"
+                        title="ResearchGate"><i class="fab fa-researchgate"></i></a>
+                    <a href="#" class="social-icon" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+                    <a href="https://www.linkedin.com/in/abdullah-hossien-12349b225/" target="_blank"
+                        class="social-icon" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+
+            <!-- Fahim -->
+            <div class="profile-card">
+                <img src="assets/Fahim Mahtab.jpg" alt="Fahim Mahtab" class="profile-img">
+                <h3 class="profile-name">Fahim Mahtab</h3>
+                <p class="profile-role">Website & Report Writing</p>
+                <div class="social-links">
+                    <a href="mailto:2110764@iub.edu.bd" class="social-icon" title="Email"><i
+                            class="fas fa-envelope"></i></a>
+                    <a href="https://github.com/Fahim-Mahtab" target="_blank" class="social-icon" title="GitHub"><i
+                            class="fab fa-github"></i></a>
+                    <a href="https://www.researchgate.net/profile/Fahim-Mahtab-3?ev=hdr_xprf" target="_blank"
+                        class="social-icon" title="ResearchGate"><i class="fab fa-researchgate"></i></a>
+                    <a href="#" class="social-icon" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+                    <a href="https://www.linkedin.com/in/fahim-mahtab-10361a294/" target="_blank" class="social-icon"
+                        title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+
+            <!-- Nasir -->
+            <div class="profile-card">
+                <img src="assets/nasir.jpg" alt="Mohammad Nasir Uddin" class="profile-img">
+                <h3 class="profile-name">Mohammad Nasir Uddin</h3>
+                <p class="profile-role">Research Member</p>
+                <div class="social-links">
+                    <a href="mailto:2211444@iub.edu.bd" class="social-icon" title="Email"><i
+                            class="fas fa-envelope"></i></a>
+                    <a href="https://github.com/nasir559" target="_blank" class="social-icon" title="GitHub"><i
+                            class="fab fa-github"></i></a>
+                    <a href="https://www.researchgate.net/profile/Md-Rabbi-74?ev=hdr_xprf" target="_blank"
+                        class="social-icon" title="ResearchGate"><i class="fab fa-researchgate"></i></a>
+                    <a href="https://scholar.google.com/citations?hl=en&user=ZzTexmsAAAAJ" target="_blank"
+                        class="social-icon" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+                    <a href="https://www.linkedin.com/in/md-nasir-uddin-rabbi-8282492b2/" target="_blank"
+                        class="social-icon" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+
+            <!-- Sunzida -->
+            <div class="profile-card">
+                <img src="assets/Most Sanzida Akter.jpg" alt="Most Sunzida Akter" class="profile-img">
+                <h3 class="profile-name">Most Sunzida Akter</h3>
+                <p class="profile-role">Research Member</p>
+                <div class="social-links">
+                    <a href="mailto:2221170@iub.edu.bd" class="social-icon" title="Email"><i
+                            class="fas fa-envelope"></i></a>
+                    <a href="https://github.com/Sn1gdha" target="_blank" class="social-icon" title="GitHub"><i
+                            class="fab fa-github"></i></a>
+                    <a href="https://www.researchgate.net/profile/Sunzida-Snigdha?ev=hdr_xprf" target="_blank"
+                        class="social-icon" title="ResearchGate"><i class="fab fa-researchgate"></i></a>
+                    <a href="#" class="social-icon" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+                    <a href="https://www.linkedin.com/me?trk=p_mwlite_feed-secondary_nav" target="_blank"
+                        class="social-icon" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+
+            <!-- Tahid (Update) -->
+            <div class="profile-card">
+                <img src="assets/Tahir Mostakim.jpeg" alt="Tahir MD Mostakim" class="profile-img">
+                <h3 class="profile-name">Tahir MD Mostakim</h3>
+                <p class="profile-role">Hardware Work</p>
+                <div class="social-links">
+                    <a href="mailto:2222527@iub.edu.bd" class="social-icon" title="Email"><i
+                            class="fas fa-envelope"></i></a>
+                    <a href="https://github.com/TahirMostakim?tab=repositories" target="_blank" class="social-icon"
+                        title="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://www.researchgate.net/profile/Abu-Tahir-Md-Mostakim?ev=hdr_xprf" target="_blank"
+                        class="social-icon" title="ResearchGate"><i class="fab fa-researchgate"></i></a>
+                    <a href="#" class="social-icon" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+                    <a href="https://www.linkedin.com/in/tahir-mostakim-85861a246/" target="_blank" class="social-icon"
+                        title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 BrailleBondhu Team. All Rights Reserved.</p>
+    </footer>
+</body>
+
+</html>
