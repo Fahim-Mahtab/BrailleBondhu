@@ -31,20 +31,35 @@
         </div>
     </nav>
 
-    <section class="section fade-in">
-        <h1 class="section-title">Prototype</h1>
-        <div class="card">
-            <h3>Prototype Development</h3>
-            <p>Images and videos of the working prototype will be displayed here.</p>
-            
-            <!-- Video Showcase -->
-            <div style="margin-top: 2rem; position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-                <iframe src="https://drive.google.com/file/d/1G3ScDGuyPnmQCeDKkexTA7mSClULfAjP/preview" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    <section class="section fade-in" style="max-width: 1200px; margin: 0 auto; text-align: center;">
+        <!-- Premium Header -->
+        <div style="margin-bottom: 3rem;">
+            <span style="display: inline-block; padding: 0.5rem 1.5rem; background: rgba(108, 99, 255, 0.1); color: var(--accent-color); border-radius: 50px; font-weight: 600; font-size: 0.9rem; margin-bottom: 1rem; border: 1px solid rgba(108, 99, 255, 0.3);">Working Prototype</span>
+            <h1 class="section-title" style="margin-bottom: 1rem; font-size: 2.5rem; text-transform: none;">See BrailleBondhu in Action</h1>
+            <p style="color: #aaa; max-width: 700px; margin: 0 auto; line-height: 1.6; font-size: 1.1rem;">
+                Watch our fully functional prototype demonstrate soft-actuation Braille mechanisms combined with real-time Bengali Natural Language Processing.
+            </p>
+        </div>
+
+        <!-- Video Showcase Container -->
+        <div class="card" style="padding: 1.5rem; background: rgba(30, 30, 40, 0.6); border: 1px solid rgba(255, 255, 255, 0.05); max-width: 1000px; margin: 0 auto; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);">
+            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; background: #000; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+                <iframe src="https://drive.google.com/file/d/1G3ScDGuyPnmQCeDKkexTA7mSClULfAjP/preview" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allow="autoplay; encrypted-media" allowfullscreen title="Prototype Demonstration Video"></iframe>
             </div>
-            <div style="margin-top: 1.5rem; text-align: center;">
-                <h4>Prototype Video Showcase</h4>
+            
+            <div style="margin-top: 2rem; display: flex; align-items: center; justify-content: center; gap: 1rem;">
+                <div style="width: 10px; height: 10px; background: var(--accent-color); border-radius: 50%; box-shadow: 0 0 10px var(--accent-color); animation: pulse 2s infinite;"></div>
+                <h4 style="color: #e0e0e0; font-weight: 500; font-size: 1.1rem; letter-spacing: 0.5px; margin: 0;">Hardware & Software Integration Demo</h4>
             </div>
         </div>
+
+        <style>
+            @keyframes pulse {
+                0% { box-shadow: 0 0 0 0 rgba(108, 99, 255, 0.7); }
+                70% { box-shadow: 0 0 0 12px rgba(108, 99, 255, 0); }
+                100% { box-shadow: 0 0 0 0 rgba(108, 99, 255, 0); }
+            }
+        </style>
     </section>
 
     <footer>
