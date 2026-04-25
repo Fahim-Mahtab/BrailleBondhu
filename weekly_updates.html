@@ -160,7 +160,9 @@
             <li><a href="literature_review.html">Literature Review</a></li>
             <li><a href="prototype.html">Prototype</a></li>
             <li><a href="team.html">Team</a></li>
+            <li><a href="teamPresentation.html">Team Presentation</a></li>
             <li><a href="weekly_updates.html" class="active">Weekly Updates</a></li>
+            <li><a href="reportWriting.html">Report Writing</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
         <div class="hamburger">
@@ -201,9 +203,9 @@
                 </p>
             </div>
 
-            <!-- Week 3 (Current) -->
-            <div class="week-card left current-week">
-                <span class="week-number">Week 3 • Current</span>
+            <!-- Week 3 -->
+            <div class="week-card left">
+                <span class="week-number">Week 3</span>
                 <h2 class="week-title">Robotics Design & Project Refinement</h2>
                 <p class="week-content">
                     Week 3 focused on robotics design and project refinement. Sir discussed key concepts of robotics
@@ -217,11 +219,38 @@
                     supported by appropriate reference sources.
                 </p>
             </div>
+
+            <!-- Week 4 -->
+            <div class="week-card right">
+                <span class="week-number">Week 4</span>
+                <h2 class="week-title">Component Acquisition & Hardware Assembly</h2>
+                <p class="week-content">
+                    In Week 4, our team procured the necessary components, including the ESP-32S microcontroller, JF-0530B push-pull solenoids, IRLZ34N MOSFETs, and a 4WD Smart Robot Chassis. We began the hardware assembly by integrating the six solenoids into a 3D-printed PLA enclosure to form the primary Braille cell, achieving standard dot heights. The mobility platform was constructed, and we implemented a dual power bank distribution system to electrically isolate the Braille actuation subsystem from the motors, ensuring consistent solenoid performance.
+                </p>
+            </div>
+
+            <!-- Week 5 -->
+            <div class="week-card left">
+                <span class="week-number">Week 5</span>
+                <h2 class="week-title">Software Development & NLP Integration</h2>
+                <p class="week-content">
+                    Week 5 focused heavily on software development and integration. We developed the ESP32 firmware to process serial commands and actuate the solenoids and motors. On the software side, we configured a Raspberry Pi to handle the Bengali Natural Language Processing (NLP). By utilizing the Vosk offline speech recognition engine and custom-training a Bangla acoustic model, we successfully integrated voice-controlled functionality. We also finalized the translation mapping logic from Bengali consonants to corresponding six-dot Braille patterns.
+                </p>
+            </div>
+
+            <!-- Week 6 (Current) -->
+            <div class="week-card right current-week">
+                <span class="week-number">Week 6 • Current</span>
+                <h2 class="week-title">Testing, Validation & Final Report</h2>
+                <p class="week-content">
+                    During Week 6, we conducted rigorous testing of the fully integrated BrailleBondhu robot. Our Braille cell achieved a rapid response time of 48 ms with a firm 4.8 N latching force. The mobility platform demonstrated a 90% success rate during navigation tasks, while the Bangla speech recognition maintained up to 94.2% accuracy in quiet environments. We successfully achieved our objective of developing the system at a cost of approximately 73 USD. Finally, we compiled all findings, performance metrics, and cost analyses into our comprehensive final research report.
+                </p>
+            </div>
         </div>
 
         <div class="coming-soon">
-            <h3>More Updates Coming Soon</h3>
-            <p>Stay tuned for updates from Week 4 onwards as our project progresses!</p>
+            <h3>Future Works & Enhancements</h3>
+            <p>Our focus now shifts to multi-cell expansion, autonomous navigation using SLAM, and enhanced battery management as outlined in our future works.</p>
         </div>
     </section>
 

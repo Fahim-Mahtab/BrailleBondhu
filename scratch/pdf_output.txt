@@ -1,0 +1,587 @@
+
+--- Page 1 ---
+Low-Cost Braille Tutor Robot for Refreshable
+Braille Created Using Soft Actuation and Bengali
+NLP Technology
+Md Abdullah Hossien Molla1, Fahim Mahtab1, Most. Sunzida Akter1, Abu
+Tahir Md Mostakim1, Md. Nasir Uddin Rabbi1, and Mohammad Shidujaman1
+Department of Computer Science and Engineering (CSE),
+Independent University, Bangladesh, Dhaka, Bangladesh
+{2221061, 2110764, 222170, 2222527, 2211444}@iub.edu.bd,
+shidujaman@iub.edu.bd
+Abstract.Theresearchpaperisaboutmakingarobotthathelpspeople
+whocannotsee.ThisrobotiscalledBrailleBondhu.Itteachespeoplehow
+to read Braille. It is special because it can talk to people in Bengali and
+it is very cheap. The people who made this robot wanted to help people
+in Bangladesh who cannot see.BrailleBondhu has a part that can raise
+and lower the Braille dots so people can feel them. It can also move
+around on its own. Talk to people in Bengali. The robot uses a computer
+to control everything and it can understand what people are saying in
+Bengali.This robot is very cheap it only costs 70 USD. Other machines
+that can do the thing cost a lot more money, usually between 2,000 to
+5,000 USD [1,2]. The people who made BrailleBondhu tested it a lot
+to make sure it works well. They wanted to make sure it could move
+around on its own and teach people how to read Braille in Bengali.The
+BrailleBondhu robot is a tool for people who cannot see in Bangladesh.
+It can help them learn how to read and write in Braille. The robot is
+also very good at talking to people in Bengali. It can move around on
+its own. This makes it very helpful for people who want to learn how to
+read Braille. The BrailleBondhu robot is an useful thing, for people who
+cannot see in Bangladesh.
+Keywords:Braille tutor·soft electromagnetic actuation·refreshable
+Braille·Bengali NLP·voice-controlled robot·low-cost assistive tech-
+nology
+1 Introduction
+Visual impairment represents a significant barrier to education and employment
+opportunities worldwide. According to the World Health Organization, at least
+2.2 billion people globally have a vision impairment, with a substantial portion
+living in low- and middle-income countries. In Bangladesh, approximately 2.2
+million people live with some form of visual impairment, yet less than one per-
+cent of this population has access to formal Braille education. Traditional Braille
+books are expensive to produce, bulky to store, and completely non-interactive,
+--- Page 2 ---
+2 Md A.H. Molla et al.
+limiting their effectiveness as learning tools. Commercial refreshable Braille dis-
+plays (RBDs) offer a dynamic alternative by using piezoelectric actuators to
+raise and lower dots in real-time. However, these devices remain prohibitively
+expensive for most institutions and individuals in developing countries, with
+prices ranging from 2,000 to 5,000 USD [2]. A comprehensive survey by Etezad
+et al. reviewed 96 papers across six actuator technologies and concluded that
+high cost, bulkiness, and maintenance issues remain the primary barriers to
+widespread adoption [2].
+There exists a critical gap between the needs of visually impaired learners
+in Bangladesh and the available assistive technology. An affordable, interactive
+Braillelearningsystemmustprovidereliabletactilefeedbackthroughrefreshable
+Braille dots that can change dynamically based on lesson content, support the
+Bengali language with its unique Braille standard distinct from English [3], offer
+mobility so that the robot can approach the user rather than requiring the user
+to come to a fixed location [4], enable voice interactivity in Bangla for hands-free
+operation [5], and be cost-effective with a total bill of materials under 100 USD
+to ensure accessibility [6]. Recent studies have highlighted that factors such as
+shortage of Braille resources, lack of teacher expertise, and insufficient policy
+support further hinder Braille literacy in many regions [7].
+The primary objectives of this research are to design and implement a six-dot
+refreshable Braille cell using low-cost electromagnetic solenoids with soft tactile
+feedback, to develop a comprehensive Bengali Braille mapping for all standard
+consonants and vowels, to construct a four-wheel drive mobile platform capable
+of basic autonomous navigation, to integrate Bangla voice control functional-
+ity using natural language processing, and to achieve a total system cost below
+10,000BangladeshiTaka(≈90USD).Asecondaryobjectiveistocreateanopen-
+source design that can be reproduced and improved upon by other researchers
+and makers, addressing the need for affordable Braille displays identified in prior
+work [8]. The current prototype focuses on Bengali consonants (39 characters),
+with demonstrated capability for expansion to vowels and compound charac-
+ters. Audio processing, including Bangla speech recognition and text-to-speech,
+is partially implemented but not fully integrated in the current version. The mo-
+bility platform operates on flat, unobstructed surfaces, and obstacle detection
+using ultrasonic sensors is reserved for future work. The system currently uses a
+single Braille cell, which is sufficient for character-by-character instruction but
+not for reading full words or sentences.
+2 Literature Review and Related Works
+2.1 Advances in Refreshable Braille Display Technologies
+Refreshable Braille displays have evolved significantly over the past decade.
+Etezad et al. conducted a comprehensive mapping review analyzing six actu-
+ator technologies: piezoelectric, electromagnetic, electroactive polymers (EAP),
+pneumatic, shape memory alloys (SMA), and microfluidic [2]. The review identi-
+fied electromagnetic actuation as a promising low-cost alternative due to its fast
+--- Page 3 ---
+Low-Cost Braille Tutor Robot for Refreshable Braille 3
+responsetimeandsimpleconstruction.Anelectromagneticbounce-typeactuator
+demonstrated a 16 Hz refresh rate for single dots and high latching force without
+constant power, thereby reducing energy consumption [1]. However, graphic re-
+fresh rates remained slower at 2.7 Hz, highlighting trade-offs between speed and
+complexity [1]. Alam et al. reviewed existing RBD technologies and proposed a
+new actuation method to overcome the high costs that often exceed benefits for
+visually impaired individuals [6]. The BrailleSense project achieved a 70% cost
+reduction by using a rotating drum mechanism with magnetic encoders, though
+mechanical wear remained a concern [9].
+Soft robotics approaches have also been explored. Zhang et al. introduced
+PneuGelSight, a vision-based proprioception system for soft robotic manipu-
+lators [4], and electro-ribbon zipping actuators provided multi-directional hap-
+tic feedback [10]. While promising, these methods often require high voltages
+or bulky pneumatic systems, limiting portability [11]. Additional reviews have
+summarized recent progress in flexible piezoelectric tactile sensors [12] and coop-
+erative actuator systems based on dielectric elastomer transducers [13], both of
+whichinformtheselectionofactuationtechnologiesforlow-costassistivedevices.
+Fig.1: Distribution of actuator technologies in RBD research literature (n=96
+papers). Based on survey by Etezad et al. [2].
+2.2 Bengali Language and Braille Standards
+TheBengalilanguage,spokenbyover250millionpeopleprimarilyinBangladesh
+andWestBengal,usesaBrahmic-derivedscript.TheofficialBengaliBraillestan-
+dard maps each character to a unique six-dot pattern based on the international
+Braille convention. Unlike English Braille, Bengali Braille maintains consistent
+--- Page 4 ---
+4 Md A.H. Molla et al.
+mapping across letters and numbers, simplifying initial learning. However, com-
+plex conjunct characters (ligatures) pose challenges for automated translation.
+Ahmed et al. developed a transformer-based neural machine translation system
+specifically to address the conjunct character problem in Bangla Braille, achiev-
+ing accurate translation of complex ligatures [3]. Kana and Hagos conducted a
+systematic review identifying barriers to Braille instruction, including student
+reliance on audio, lack of teacher expertise, and scarce Braille resources [7]. Their
+findings underscore the need for culturally adapted, localized educational tools.
+A scoping review on quality of life for Braille users by Rose et al. revealed that
+existing research is fragmented and lacks consistent definitions of Braille literacy,
+urging high-quality studies on long-term impact [14].
+2.3 AI and NLP for Braille Education
+RecentadvancesindeeplearninghavebeenappliedtoBrailleandtactilesensing.
+Jeevakumari and Dey demonstrated improved visual speech recognition using a
+3D-CNN with Bi-LSTM and Connectionist Temporal Classification (CTC) loss,
+though performance was sensitive to lighting conditions [15]. Huang et al. used
+instruction-tunedlargelanguagemodelstosolvecomplexBrailletaskslikemath-
+ematics and mixed-language translation, but high computational requirements
+limit mobile deployment [16]. For Bangla specifically, Hussain et al. developed
+a deep learning-based voice-to-Braille conversion system using VGG-16 CNN
+for phonetic audio recognition, achieving high accuracy in real-time conversion
+of spoken Bangla to six-dot tactile patterns [5]. Souza Reis et al. created a
+web-based pipeline using OpenAI Whisper and Gemini LLM that automated
+lecture transcription to Braille files, though requiring stable internet connectiv-
+ity [17]. Islam et al. developed a multilingual handwriting learning system for
+visually impaired people using a stylus and graphics pad with voice guidance; a
+Random Forest model achieved 99.8% accuracy in evaluating user progress [18].
+Theirworkemphasizedtheimportanceofvoice-guidedinterfacesforindependent
+learning. Additionally, recurrent neural networks and long short-term memory
+networks have been comprehensively surveyed by Mienye et al. [19] and Krichen
+and Mihoub [20] for applications in sequence modeling relevant to NLP tasks.
+2.4 Mobile Robotics and IoT in Assistive Technology
+Mobilerobotictutorsforvisuallyimpairedindividualshavebeenexploredinedu-
+cationalcontexts.Jobaidaetal.designed“TINY,” aBangla-speakingeducational
+robot for children with Autism Spectrum Disorder in Bangladesh [21,22]. Field
+tests showed varied engagement, highlighting the need for culturally adapted,
+localized solutions. Their work demonstrated the feasibility of low-cost, voice-
+interactive robots in Bangladeshi classrooms. IoT-driven accessibility solutions
+have also been developed. Reddy et al. integrated Optical Character Recogni-
+tion (OCR) with IoT and Wireless Sensor Networks for real-time text-to-Braille
+conversion, enhancing reading experiences through combined tactile and audio
+feedback [23]. However, the system relied on stable internet and was sensitive
+--- Page 5 ---
+Low-Cost Braille Tutor Robot for Refreshable Braille 5
+to poor lighting. Raynal et al. introduced the FlexiBoard, a tangible and tactile
+graphicssystemforpeoplewithvisionimpairments,demonstratingthatlow-cost,
+customizable tactile interfaces can be built with off-the-shelf materials [24]. A
+review of social robots in education by Alam analyzed the roles and behaviors
+of robot tutors, providing a framework for future research [25].
+2.5 Tactile Sensing and Haptic Feedback Mechanisms
+Haptic feedback is critical for effective Braille reading. Shi and Shen summa-
+rized state-of-the-art VR-related haptic sensing and feedback hardware, identi-
+fying future prospects in AIoT and medical technology [26]. Ruan et al. reviewed
+magnetic materials for haptic interfaces, noting that current response speeds and
+miniaturization still lag real-time requirements [27]. Soft programmable buttons
+with hydraulically coupled haptic feedback (HaptiCoil) developed by Youn et al.
+provided wide-bandwidth tactile stimuli at low power levels under 40 mW [28].
+FlatPanelHapticsbyShultzandHarrisonusedembeddedelectroosmoticpumps
+for scalable shape displays, creating pop-up interfaces only 1.5 mm thick [29].
+Jiang et al. conducted a systematic literature review on how haptic feedback
+can assist people with blindness and low vision, providing design guidelines for
+future assistive devices [30]. Their findings emphasize the importance of mul-
+timodal feedback (tactile plus auditory) for effective information transfer. Ad-
+ditional work includes a vision-based approach for sensorizing soft robots [4],
+active electronic skin for ambient haptic feedback by Guo et al. [31], and a hy-
+brid soft haptic display for rendering lump stiffness in remote palpation by Yu
+et al. [32]. Recent advances in tactile sensory systems have been reviewed by Xi
+et al. with focus on materials and fabrication techniques [33].
+2.6 Related Works Summary
+Table 1 summarizes key related works in refreshable Braille displays, Bangla
+NLP, and assistive robotics, highlighting their objectives, methodologies, and
+limitations.
+3 Methodology
+The development of the BrailleBondhu tutor robot followed a five-phase iterative
+methodology. First, requirements were gathered through interviews with special
+education teachers in Dhaka and a review of existing literature [2,7] to identify
+key functional and cost requirements. Second, components were selected based
+oncost,availability,andperformance,includingsolenoidsevaluatedagainstprior
+work [1] and NLP frameworks informed by recent studies [5]. Third, hardware
+integration involved assembling the Braille cell, mobility platform, and control
+electronics. Fourth, software was developed, including firmware for the ESP32
+and a Python interface for the Raspberry Pi with Bangla speech recognition
+--- Page 6 ---
+6 Md A.H. Molla et al.
+Table 1: Comparative Summary of Related Works
+RefAuthor(s) / Title Key Contribution and Limitations
+[1]Chen et al.: Electromagnetic Bounce-
+Type RBD16 Hz refresh, high latching force;
+graphic refresh slower (2.7 Hz)
+[2]Etezad et al.: Advancements in RBD
+TechnologySurvey of 96 papers; cost and bulkiness
+remain hurdles
+[3]Ahmed et al.: Transformer-based Ben-
+gali Braille NMTSolves conjunct character problem;
+dataset scarcity
+[5]Hussain et al.: Bangla Voice to Braille
+ConversionReal-time speech-to-Braille; sensitive to
+background noise
+[8]Smiley et al.: MagnePins Modular, affordable DIY RBD; repro-
+ducible design
+[9]Malhotra and Devkar: BrailleSense 70% cost reduction; mechanical wear
+over time
+[16]Huang et al.: BrailleLLM Solves complex Braille tasks; high com-
+putational requirements
+[21]Jobaida et al.: Voice Interactive Robot
+“TINY”Low-cost Bangla-speaking robot; finan-
+cial constraints
+Fig.2: Complete system block diagram showing interconnections between power
+supply, control units, actuators, and audio subsystems.
+--- Page 7 ---
+Low-Cost Braille Tutor Robot for Refreshable Braille 7
+integration. Finally, testing and validation assessed Braille accuracy, mobility
+precision, and voice recognition performance.
+The complete system architecture is illustrated in Figure 2. The system is
+divided into two processing units: an ESP32 microcontroller for real-time con-
+trol of actuators and motors, and a Raspberry Pi 4 for high-level tasks including
+Bangla NLP and user interface management. Component selection was guided
+by the following criteria. The ESP32 microcontroller was chosen for its low cost
+(≈4.5 USD), 240 MHz dual-core processor, built-in Wi-Fi and Bluetooth, and
+34 GPIO pins, sufficient for controlling six solenoids and four motors simulta-
+neously. The Raspberry Pi 4 with 4 GB of memory was selected for its ability
+to run a full Linux OS, support Python libraries for speech recognition (Vosk,
+SpeechRecognition),andhandlefuturecomputervisiontasks[34].TheJF-0530B
+solenoid is a 12 V push-pull device with 5 N force at 10 mm stroke; it was se-
+lected after evaluating alternatives including servos and SMA wires for its cost-
+to-performance ratio. The IRLZ34N MOSFET is a logic-level N-channel device
+capable of switching up to 30 A, ensuring reliable solenoid actuation from the 3.3
+V ESP32 output. The L298N motor driver is a dual H-bridge driver widely used
+in educational robotics [21], capable of driving four DC motors with PWM speed
+control. The INMP441 MEMS microphone provides an I2S digital interface with
+high SNR (61 dBA), suitable for far-field voice capture, while the MAX98357A
+amplifier drives a small speaker for text-to-speech output.
+Fig.3: Power distribution schematic showing dual power bank configuration and
+isolation between Braille and mobility subsystems.
+Power is supplied by two separate 5 V power banks to provide electrical
+isolation between the Braille actuation subsystem and the mobility subsystem,
+preventing voltage drops caused by motor startup from affecting solenoid per-
+formance [1]. The power distribution architecture is shown in Figure 3. The first
+power bank (5 V, 3 A) powers the Raspberry Pi and, via an MT3608 boost
+converter (5 V to 12 V), the six solenoids. A 1000µF capacitor smooths voltage
+spikes, and a 120Ωdummy load prevents the power bank from entering sleep
+mode. The second power bank (5 V, 2.4 A) powers the L298N motor driver via
+a second MT3608 boost converter (5 V to 9 V). Common ground is established
+between the two systems.
+--- Page 8 ---
+8 Md A.H. Molla et al.
+4 System Design
+4.1 Hardware Architecture
+The hardware architecture contains four fundamental subsystems which include
+the Braille cell assembly and the mobility platform and the control electronics
+and the audio subsystem. The Braille cell includes six JF-0530B solenoids which
+engineers installed inside a 3D-printed PLA enclosure that measures 150 mm
+by 100 mm by 60 mm. The lid contains two-by-three Braille grid holes which
+direct each solenoid to match a 2.5 mm hole. A mechanical stop limits plunger
+protrusion to 0.7 mm which matches the standard Braille dot height specified
+in ISO 11548. The mobile chassis base contains an enclosure that secures the
+enclosure with vibration-damping foam.
+Fig.4:Deploymentdiagramshowingphysicalplacementofhardwarecomponents
+on the robot chassis.
+Figure4showshowhardwarecomponentsarephysicallyinstalledthroughout
+the system. A commercially available four-wheel drive chassis kit (RBD-4017)
+serves as the foundation of the mobility platform. The chassis dimensions reach
+220 mm in length 140 mm in width and 60 mm in height while it contains four
+BO geared motors with a nominal speed of 100 revolutions per minute at 6 V
+which power 65 mm diameter wheels. The chassis supports the L298N motor
+driver which gets installed at its front side while the ESP32 module sits at the
+middle part of the device to achieve equal weight distribution. Two 400-point
+breadboards serve as the base for assembling control electronics. Breadboard A
+contains the ESP32, six MOSFET switching circuits (each with an IRLZ34N,
+220Ωgate resistor, 10 kΩpull-down, and 1N4007 flyback diode), and terminal
+blocks for solenoid connections. Breadboard B contains the L298N motor driver
+with two MT3608 boost converters and power distribution terminals.
+The Raspberry Pi audio system connects the INMP441 microphone through
+I2S interface for superior audio recording. The MAX98357A amplifier drives a 3
+W speaker for spoken feedback. The two components are installed on a compact
+protoboard which connects to the 40-pin GPIO header of the Raspberry Pi. The
+complete pin mapping for the ESP32 is provided in Table 2.
+--- Page 9 ---
+Low-Cost Braille Tutor Robot for Refreshable Braille 9
+Fig.5: Software Architecture Layered Design (ESP32 Firmware and Raspberry
+Pi Application)
+--- Page 10 ---
+10 Md A.H. Molla et al.
+Table 2: ESP32 Pin Assignments
+Function GPIO Pin Connected To
+Solenoid 1 (Dot 1) 32 MOSFET 1 Gate
+Solenoid 2 (Dot 2) 33 MOSFET 2 Gate
+Solenoid 3 (Dot 3) 25 MOSFET 3 Gate
+Solenoid 4 (Dot 4) 26 MOSFET 4 Gate
+Solenoid 5 (Dot 5) 27 MOSFET 5 Gate
+Solenoid 6 (Dot 6) 14 MOSFET 6 Gate
+L298N IN1 8 L298N IN1
+L298N IN2 9 L298N IN2
+L298N IN3 10 L298N IN3
+L298N IN4 11 L298N IN4
+L298N ENA 12 L298N ENA (PWM)
+L298N ENB 13 L298N ENB (PWM)
+4.2 Software Architecture
+ThesoftwarearchitectureexistsasalayereddesignwhichFigure5demonstrates.
+The ESP32 firmware creates a command parser which operates on USB serial
+at 115200 baud to process text commands that include BRAILLE:XXXXXX
+and FORWARD and STOP. The Braille controller activates solenoids one at a
+time with 30 millisecond intervals to decrease maximum power consumption.
+The motor controller produces PWM signals which control the L298N motor
+through speed and direction settings. The system reserves a sensor interface
+space to support upcoming ultrasonic sensor installations.
+Figure 6 shows how the Raspberry Pi and ESP32 transmit data during their
+normal Braille character display operations. The Raspberry Pi application uses
+Python programming language to operate its speech recognition system which
+combines Vosk offline speech recognition with a Bangla acoustic model that cus-
+tom trains on the Bengali Common Voice dataset. The NLP module uses recog-
+nized Bangla text to identify characters which it converts into Braille patterns
+through a lookup table [3]. The system uses pySerial for serial communica-
+tion while it delivers text-to-speech output through eSpeak-NG which includes
+Banglavoicesynthesiscapability.TheofficialBangladeshiBraillestandarddeter-
+mines how Bengali characters map onto six-dot Braille patterns. Table 3 presents
+a subset of the 39 consonants; the complete mapping exists as a Python dictio-
+nary and in the ESP32 firmware as a PROGMEM array.
+5 Test Data
+5.1 Braille Cell Performance
+Controlled tests were conducted on the Braille cell mechanism and its electri-
+cal characteristics. The measurements were taken with three devices: the Rigol
+DS1054Z digital oscilloscope, Mitutoyo 500-196-30 digital caliper, and Mark-10
+--- Page 11 ---
+Low-Cost Braille Tutor Robot for Refreshable Braille 11
+Fig.6: Sequence diagram showing end-to-end communication flow for displaying
+a Bengali Braille character.
+--- Page 12 ---
+12 Md A.H. Molla et al.
+Table 3: Partial Bengali Consonant to Braille Pattern Mapping
+Character Braille Pattern Dots Raised
+k (ka) 101100 1, 3, 4
+kh (kha) 100110 1, 4, 5
+g (ga) 101010 1, 3, 5
+gh (gha) 100011 1, 4, 6
+ng (nga) 101001 1, 3, 6
+ch (cha) 101101 1, 3, 4, 6
+M5-50 force gauge. Results are reported in Table 4. The response time of 48
+ms met the criteria of 100 ms required for interactive purposes [1]. The dot
+protrusion of 0.72 mm was found to be close to the ISO standard of 0.7 mm.
+The latching force of 4.8 N is larger than the required 3 N for accurate fingertip
+detection[2]. With the use of the sequential firing method, maximum current
+decreased from 2.9 A theoretically expected value to 1.2 A practically achieved
+value. Tests showed that temperature remained in safe ranges for continuous op-
+eration of solenoids. Accelerated lifetime testing exceeded 50,000 cycles without
+any degradation detected, hence more than 500,000 cycles may be expected of
+this device.
+Table 4: Braille Cell Test Results
+Parameter Measured Value Target Value Pass/Fail
+Response Time (single dot) 48 ms <100 ms Pass
+Dot Protrusion Height 0.72±0.05 mm 0.7±0.1 mm Pass
+Latching Force (at 0.7 mm) 4.8 N >3 N Pass
+Peak Current (single solenoid) 485 mA <600 mA Pass
+Steady-State Temperature (after 2 min) 42◦C <60◦C Pass
+Cycle Life (accelerated) >50,000 cycles >10,000 cycles Pass
+5.2 Mobility Platform Performance
+Mobility tests were conducted on a smooth tiled floor in a controlled indoor
+environment with 20 trials per movement command. Forward movement over 1
+m had a 95% success rate with an average deviation of 4.8 cm and an average
+time of 3.2 s. Backward movement achieved 93% success with a deviation of 5.9
+cm and a time of 3.5 s. Left turns of 90◦had a 90% success rate with an angular
+error of±8◦, while right turns had an 88% success rate with an error of±10◦.
+The asymmetry is attributed to minor differences in motor characteristics and
+wheel traction; closed-loop feedback using wheel encoders could mitigate this in
+future iterations [4].
+--- Page 13 ---
+Low-Cost Braille Tutor Robot for Refreshable Braille 13
+5.3 Bangla Speech Recognition Accuracy
+The Vosk-based Bangla speech recognition module was tested with 10 native
+Bangla speakers (5 male, 5 female) each pronouncing the 39 Bengali consonants
+in a quiet room with ambient noise of approximately 45 dB SPL. In quiet con-
+ditions, accuracy was 94.2%. Under moderate noise of 60 dB SPL, accuracy
+dropped to 87.5%, and under high noise of 75 dB SPL, accuracy fell to 72.3%.
+Theseresultsarecomparabletocloud-basedsolutions[17]whilemaintaininguser
+privacy and eliminating internet dependency. Performance degradation in noise
+is consistent with findings from other voice-to-Braille systems [5]; future work
+will incorporate noise-robust front-end processing such as spectral subtraction.
+5.4 Integrated System Testing
+Thirty trials of integrated operation were conducted, wherein the robot moved
+1 m forward, displayed a randomly selected Bengali consonant, and returned
+to the starting position. The overall success rate was 90%, with Braille display
+accuracy at 100% and mobility accuracy at 88% (failures due to wheel slip). The
+average task completion time was 12.4 s. A detailed breakdown is provided in
+Table 5.
+Table 5: Integrated Test Results (n=30)
+Metric Value
+Overall Success Rate 90%
+Braille Display Accuracy 100%
+Mobility Accuracy 88%
+Average Task Completion Time 12.4 s
+6 Results and Analysis
+The solenoid-based Braille cell achieved a response time of 48 ms, which is well
+within the acceptable range for interactive applications [1]. The dot protrusion
+of 0.72 mm and latching force of 4.8 N ensure comfortable and recognizable tac-
+tile feedback. The 4WD platform demonstrated acceptable accuracy for indoor
+navigation, with forward movement deviation under 5 cm per meter. The slight
+asymmetry in turning accuracy can be addressed through closed-loop feedback.
+The offline speech recognition achieved 94.2% accuracy for isolated Bengali con-
+sonantsinquietconditions,validatingthefeasibilityofvoice-controlledoperation
+without internet dependency.
+The total material cost was 13,456 BDT (≈123 USD) including all compo-
+nents. ExcludingtheRaspberryPi, whichcan besharedacross multipleprojects,
+the incremental cost per Braille tutor is approximately 8,000 BDT (≈73 USD).
+--- Page 14 ---
+14 Md A.H. Molla et al.
+This represents a cost reduction exceeding 95% compared to commercial 14-
+cell RBDs [2] and over 70% compared to other low-cost prototypes [9]. Table 6
+presents a cost comparison.
+Table 6: Cost Comparison with Existing Systems
+System Cost (USD) Cells Bengali Support Mobility
+Focus 14 Blue 2,000 14 No No
+Brailliant BI 14 1,800 14 No No
+BrailleSense [9] ∼200 6 No No
+This Work (incremental) 73 1 Yes Yes
+This Work (full) 123 1 Yes Yes
+The proposed system uniquely combines refreshable Braille output, Bengali
+language support, Bangla voice interactivity, and autonomous mobility in a sin-
+gle package under 100 USD. The single-cell limitation is acceptable for alphabet
+learning and can be expanded modularly [8].
+7 Discussion and Conclusion
+The results demonstrate that a functional, low-cost Braille tutor robot can
+be built using off-the-shelf components available in developing countries. The
+electromagnetic solenoid actuation proved reliable and cost-effective, validating
+findings from prior research [1,2]. The integration of Bangla NLP addresses a
+critical gap in assistive technology for the Bengali-speaking visually impaired
+community, which has been underserved by commercial products [3,7]. The mo-
+bility feature distinguishes this work from stationary Braille displays; the ability
+to approach the user reduces cognitive and physical burden, which is particu-
+larly beneficial for young learners and users with multiple disabilities [21]. The
+open-source design aligns with calls for reproducible, affordable assistive tech-
+nology [8].
+However, several limitations must be acknowledged. The single-cell display
+restricts the system to character-by-character instruction; multi-cell expansion is
+necessary for reading words and sentences. The current mobility platform lacks
+obstacle detection, limiting autonomous operation. Speech recognition accuracy
+degrades in noisy environments, a common challenge for voice-based assistive
+devices [5]. Despite these limitations, the project has successfully achieved its
+primaryobjectives:alow-cost,voice-controlledrefreshableBrailletutorrobotfor
+Bengali-speaking visually impaired individuals has been designed, implemented,
+and evaluated. The total incremental cost of approximately 73 USD makes it
+accessible to schools and individuals in Bangladesh, and the open-source design
+contributes to the growing body of affordable assistive technology solutions for
+underserved populations.
+--- Page 15 ---
+Low-Cost Braille Tutor Robot for Refreshable Braille 15
+8 Future Works
+Basedonthefindingsandlimitationsidentified,severaldirectionsforfuturework
+are planned. First,multi-cell expansionwill develop a four-cell or eight-cell
+Braille display using the same solenoid design, enabling word- and sentence-
+level reading. This will require a multiplexing scheme to reduce GPIO count and
+power consumption. Second,obstacle detection and autonomous naviga-
+tionwill be implemented by integrating HC-SR04 ultrasonic sensors and a sim-
+ple SLAM algorithm on the Raspberry Pi [4]. Third,enhanced Bangla NLP
+will improve noise robustness of speech recognition using spectral subtraction
+and beamforming techniques, and the vocabulary will be expanded to include
+vowels, compound characters, and common Bangla words. Fourth,curriculum
+integrationwill develop a structured, gamified Braille learning curriculum with
+progressivedifficultylevelsdeliveredthroughaudiopromptsandtactilefeedback.
+Fifth,battery managementwill incorporate an onboard system with Li-ion
+cells, charging circuitry, and low-battery indication to replace external power
+banks. Sixth,user studieswill conduct longitudinal evaluations with visually
+impaired students in Bangladeshi schools to assess learning outcomes and user
+satisfaction [14]. Finally,alternative soft actuation methodssuch as dielec-
+tric elastomers [13] or electro-ribbon zipping [10] may be explored for quieter,
+more skin-like tactile feedback.
+References
+1. Chen, D., Zhang, S., Shen, L., Li, C., Hua, J., Liu, J. & Song, A. Design and eval-
+uation of an electromagnetic bounce-type refreshable braille display.IEEE Trans-
+actions On Neural Systems And Rehabilitation Engineering.33pp. 705-716 (2025)
+2. Etezad, M., Joshi, R. & Cibrian, F. Advancements in refreshable Braille display
+technology: A comprehensive survey.Displays.90pp. 103133 (2025)
+3. Ahmed, T., Rahman, T., Biswas, S., Sabuj, S., Bhuian, M., Moni, M. & Alam, M.
+A vision transformer-based hybrid neural architecture for automated handwritten
+Banglacharacterrecognitionandbrailleconversion.Knowledge-Based Systems.pp.
+114546 (2025)
+4. Zhang, R., Yoo, U., Li, Y., Argawal, A. & Yuan, W. PneuGelSight: Soft robotic
+vision-based proprioception and tactile sensing.The International Journal Of
+Robotics Research. pp. 02783649251378153 (2025)
+5. Hussain, M., Rifat, R., Iqbal, S., Biswas, S., Alam, M. & Reza, M. Deep learning
+based bangla voice to braille character conversion system.2022 IEEE 13th An-
+nual Information Technology, Electronics And Mobile Communication Conference
+(IEMCON). pp. 0262-0267 (2022)
+6. Alam, M., Roy, N., Paul, D. & Zuthi, N. Refreshable Braille Display: A Review of
+Existing Technologies and a Proposed Method.2024 IEEE International Confer-
+ence On Power, Electrical, Electronics And Industrial Applications (PEEIACON).
+pp. 659-663 (2024)
+7. Kana, F. & Hagos, A. Factors hindering the use of Braille for instruction and as-
+sessmentofstudentswithvisualimpairments:Asystematicreview.British Journal
+Of Visual Impairment.43, 396-406 (2025)
+--- Page 16 ---
+16 Md A.H. Molla et al.
+8. Smiley, J., Ananthanarayan, S., Holloway, L., Butler, M. & Dwyer, T. MagnePins:
+A Modular, Affordable, and DIY Refreshable Braille and Tactile Display.Pro-
+ceedings Of The 38th Annual ACM Symposium On User Interface Software And
+Technology. pp. 1-12 (2025)
+9. Malhotra, A. & Devkar, A. Affordable Braille Display Technology for STEM Edu-
+cation: Enhancing Accessibility in Schools.2025 IEEE Integrated STEM Education
+Conference (ISEC). pp. 1-4 (2025)
+10. Pan, Y., Hou, N., Sun, W. & Taghavi, M. 3D-ElectroZip touch: multi-directional
+haptic feedback with electro-ribbon zipping actuators.Smart Materials And Struc-
+tures.33, 085030 (2024)
+11. Jin, H., Kim, Y., Youm, W., Min, Y., Seo, S., Lim, C., Hong, C., Kwon, S., Park,
+G., Park, S. & Others Highly pixelated, untethered tactile interfaces for an ultra-
+flexible on-skin telehaptic system.Npj Flexible Electronics.6, 82 (2022)
+12. Tang, J., Li, Y., Yu, Y., Hu, Q., Du, W. & Lin, D. Recent progress in flexible piezo-
+electric tactile sensors: materials, structures, fabrication, and application.Sensors.
+25, 964 (2025)
+13. Rizzello,G.Areviewofcooperativeactuatorandsensorsystemsbasedondielectric
+elastomer transducers.Actuators.12, 46 (2023)
+14. Rose, A., Fanshawe, M., Barton, G. & Cain, M. Quality of life for braille users: A
+scoping review.Review Of Education.13, e70083 (2025)
+15. Jeevakumari, S. & Dey, K. LipSyncNet: a novel deep learning approach for visual
+speech recognition in audio-challenged situations.IEEE Access.12pp. 110891-
+110904 (2024)
+16. Huang, T., Zhu, Z., Xing, H., Shao, Z., Yu, Z., Yang, C., He, J., Liu, X. & Bu,
+J. BrailleLLM: Braille Instruction Tuning with Large Language Models for Braille
+Domain Tasks.Proceedings Of The 2025 Conference On Empirical Methods In
+Natural Language Processing. pp. 28589-28600 (2025)
+17. Souza Reis, G., Oliveira, I., Amate, F. & Giancoli, A. An accessible web-based
+system for audio transcription and braille conversion. (2025)
+18. Islam, M., Jahangir, R., Mohim, N., Wasif-Ul-Islam, M., Ashraf, A., Khan, N.,
+Mahjabin, M., Miah, A. & Shin, J. A multilingual handwriting learning system for
+visually impaired people.IEEE Access.12pp. 10521-10534 (2024)
+19. Mienye, I., Swart, T. & Obaido, G. Recurrent neural networks: A comprehensive
+review of architectures, variants, and applications.Information.15, 517 (2024)
+20. Krichen, M. & Mihoub, A. Long short-term memory networks: A comprehensive
+survey.AI.6, 215 (2025)
+21. Jobaida, N., Shidujaman, M., Mahbub, A., Samani, H., Premachandra, C., Ud-
+din, M. & Alam, S. Design and development of a low-cost voice interactive chil-
+dren educational robot ‘tiny’ with natural language processing.2024 International
+Conference On Image Processing And Robotics (ICIPRoB). pp. 1-6 (2024)
+22. Jobaida, N., Shidujaman, M., Mahbub, A., Samani, H., Premachandra, C., Ud-
+din, M. & Alam, S. Design and development of a low-cost voice interactive chil-
+dren educational robot ‘tiny’ with natural language processing.2024 International
+Conference On Image Processing And Robotics (ICIPRoB). pp. 1-6 (2024)
+23. Reddy, K., Badam, R., Alam, S. & Shuaib, M. IoT-driven accessibility: A refre-
+shable OCR-Braille solution for visually impaired and deaf-blind users through
+WSN.Journal Of Economy And Technology.2pp. 128-137 (2024)
+24. Raynal, M., Ducasse, J., Macé, M., Oriola, B. & Jouffrais, C. The FlexiBoard:
+Tangible and Tactile Graphics for People with Vision Impairments.Multimodal
+Technologies and Interaction.8, 2-27 (2024)
+--- Page 17 ---
+Low-Cost Braille Tutor Robot for Refreshable Braille 17
+25. Alam, A. Social robots in education for long-term human-robot interaction: so-
+cially supportive behaviour of robotic tutor for creating robo-tangible learning
+environment in a guided discovery learning interaction.Electrochemical Society
+Transactions.107, 12389-12403 (2022)
+26. Shi, Y. & Shen, G. Haptic sensing and feedback techniques toward virtual reality.
+Research.7pp. 0333 (2024)
+27. Ruan, L., Wen, J., Wang, Y., Zhao, X., Li, F., Zhang, Y., Liu, C., Tao, W., Liang,
+H., Zhang, X. & Others Sensors and actuators based on magnetic materials for
+haptic interfaces.Journal Of Materials Chemistry C.13, 16837-16862 (2025)
+28. Youn, J., Lee, S. & Shultz, C. Hapticoil: Soft programmable buttons with hy-
+draulically coupled haptic feedback and sensing.Proceedings Of The 2025 CHI
+Conference On Human Factors In Computing Systems. pp. 1-16 (2025)
+29. Shultz, C. & Harrison, C. Flat panel haptics: Embedded electroosmotic pumps
+for scalable shape displays.Proceedings Of The 2023 CHI Conference On Human
+Factors In Computing Systems. pp. 1-16 (2023)
+30. Jiang, C., Kuang, E. & Fan, M. How can haptic feedback assist people with blind
+and low vision (BLV): A systematic literature review.ACM Transactions On Ac-
+cessible Computing.18, 1-57 (2025)
+31. Guo, Y., Wang, Y., Tong, Q., Shan, B., He, L., Zhang, Y. & Wang, D. Active
+electronic skin: an interface towards ambient haptic feedback on physical surfaces.
+Npj Flexible Electronics.8, 25 (2024)
+32. Yu, P., Kawazoe, A., Urquhart, A., Ferris, T., Hipwell, M. & Friesen, R. A Hybrid
+Soft Haptic Display for Rendering Lump Stiffness in Remote Palpation.ArXiv
+Preprint ArXiv:2601.11807. (2026)
+33. Xi, J., Yang, H., Li, X., Wei, R., Zhang, T., Dong, L., Yang, Z., Yuan, Z., Sun, J.
+& Hua, Q. Recent advances in tactile sensory systems: Mechanisms, fabrication,
+and applications.Nanomaterials.14, 465 (2024)
+34. Himawan, R., Rachmawanto, E. & Sari, C. Real-Time Braille Letter Detection
+System Using YOLOv8.Journal Of Applied Informatics And Computing.9, 1179-
+1190 (2025)
